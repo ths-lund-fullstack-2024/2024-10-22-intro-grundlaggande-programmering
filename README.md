@@ -8,6 +8,7 @@ Intro till kursen och kursinnehållet.
 - [Dagens agenda](#dagens-agenda)
   - [Skapa repo på github](#skapa-repo-på-github)
 - [Git intro](#git-intro)
+  - [Git overview]()
   - [Git kommandon](#git-kommandon)
 
 </details>
@@ -60,12 +61,22 @@ Då bör det skrivas ut en version i din terminal, och då vet vi att git funkar
 
 [Tillbaks till toppen](#intro-grundläggande-programmering)
 
+---
+
+### Git overview
+
+<image src="./git-overview.png">
+
+[Tillbaks till toppen](#intro-grundläggande-programmering)
+
+---
+
 ### Git kommandon
 
 <details>
 <summary>Lista på kommandon</summary>
 
-- [git clone]()
+- [git clone](#git-clone)
 - [git add]()
 - [git commit]()
 - [git pull]()
@@ -74,6 +85,8 @@ Då bör det skrivas ut en version i din terminal, och då vet vi att git funkar
 - [Länk till fler git-kommandon](https://www.freecodecamp.org/news/git-cheat-sheet/)
 - [Tillbaks till toppen](#intro-grundläggande-programmering)
 </details>
+
+---
 
 #### `git clone`
 
@@ -94,3 +107,15 @@ git clone https://github.com/DerFahnrich/test.git
 då har du lyckats klona ner ditt repo lokalt och kan nu börja jobba med det i VSC.
 
 Det som händer bakom kulisserna är att git skapar en automatiskt koppling mellan ditt lokala repo och ditt remote repo. Vilket gör att alla ändringar du gör i denna mapp, och som du sen skickar upp med en [git push](#git-push) kommer automatiskt att hamna på rätt remote repo. I bakgrunden sker även en [git pull](#git-pull) som hämtar ner det senaste innehållet från ditt rempote repo.
+
+[Tillbaks till toppen](#intro-grundläggande-programmering)
+
+---
+
+#### `git status`
+
+Status-kommndot är ett bra kommando för att se statusen på de olika filerna som du har arbeta med. Den kan visa vilka filerna du har ändrat i, vilka du har skapat samt vilka du har raderat. Den visar också vilken status de olika filerna har, har de status "untracked", "changes" eller "staged changes". Olika status betyder olika saker.
+
+[Tillbaks till toppen](#intro-grundläggande-programmering)
+
+---
