@@ -65,6 +65,16 @@ Då bör det skrivas ut en version i din terminal, och då vet vi att git funkar
 
 ### Git overview
 
+Bilden nedan visar på en illustration av hur git-flödet ser ut. De delarna som ni bör fokusera på i detta skede av kursen är följande:
+
+- Worksspace
+- Staging area
+- Local Repository
+- Remote repository
+- git add, git commit, git pull och git push.
+
+Övrig tillhör mer avancerad git och det återkommer vi till senare i utbildningen.
+
 <image src="./git-overview.png">
 
 [Tillbaks till toppen](#intro-grundläggande-programmering)
@@ -77,11 +87,12 @@ Då bör det skrivas ut en version i din terminal, och då vet vi att git funkar
 <summary>Lista på kommandon</summary>
 
 - [git clone](#git-clone)
-- [git add]()
-- [git commit]()
-- [git pull]()
-- [git push]()
-- [git status]()
+- [git add](#git-add)
+- [git commit](#git-commit)
+- [git pull](#git-pull)
+- [git push](#git-push)
+- [git status](#git-status)
+- [git log](#git-log)
 - [Länk till fler git-kommandon](https://www.freecodecamp.org/news/git-cheat-sheet/)
 - [Tillbaks till toppen](#intro-grundläggande-programmering)
 </details>
@@ -108,13 +119,105 @@ då har du lyckats klona ner ditt repo lokalt och kan nu börja jobba med det i 
 
 Det som händer bakom kulisserna är att git skapar en automatiskt koppling mellan ditt lokala repo och ditt remote repo. Vilket gör att alla ändringar du gör i denna mapp, och som du sen skickar upp med en [git push](#git-push) kommer automatiskt att hamna på rätt remote repo. I bakgrunden sker även en [git pull](#git-pull) som hämtar ner det senaste innehållet från ditt rempote repo.
 
+[Tillbaks till git kommandon](#git-kommandon)
+
+[Tillbaks till toppen](#intro-grundläggande-programmering)
+
+---
+
+#### `git add`
+
+Detta kommando används för att lägga till ändringar i det som kallas för staging area. I staging area ligger alla ändring som vi vill ta med i nästa commit/version. Så förs nät vi gör en ändring så kommer git att lägga märke till det och met registrerar endast det som "changes". Add lägger till det i "staging area". Det är alltså förberedd för att committas.
+
+Vi kan göra detta på två sätt egentligen. Antingen så "addar" vi alla ändringar, då skriver vi:
+
+```
+git add .
+```
+
+Vill man endast lägga till en del av de ändringarna man har gjort så använder man samma kommando, men man specificerar filnamnet hela tiden.
+
+```
+git add index.html
+git add index.css
+git add README.md
+```
+
+[Tillbaks till git kommandon](#git-kommandon)
+
+[Tillbaks till toppen](#intro-grundläggande-programmering)
+
+---
+
+#### `git commit`
+
+Detta kommando används för att skapa en ny version av din kod. Den kommer att plocka allt du har i din "staging area", paketera ihop det och skapa en commit av det. Alla commits sen kan du titta på genom att skriva "[git log](#git-log)". En commit är något som lever lokalt på din dator till en början. För att skicka upp den till ditt remote-repo så får du använda dig av "[git push](#git-push)".
+
+När man gör en commit så är det jätteviktigt att man lägger till ett meddelande också som sammanfattar vad den skapade commiten har gjort för något. Det är sätt att dokumentera de olika versionerna man har. Så här ser följande kommando ut:
+
+```
+git commit -m "Ditt commit-meddelande"
+```
+
+[Tillbaks till git kommandon](#git-kommandon)
+
+[Tillbaks till toppen](#intro-grundläggande-programmering)
+
+---
+
+#### `git pull`
+
+git pull är kommando som drar ner de sensate ändringarna från remote-repot. Se det som en synk i riktningen "remote -> local". Detta används extremt mycket när man sitter flera personer i samma applikation. Har någon kollega gjort en ändring i er kodbas, och du vill dra ner den ändringen till ditt lokala repo så är det en git pull du gör. Ser ut som följande:
+
+```
+git pull
+```
+
+En git pull bör man alltid göra innan man börjar arbeta för att säkerhetsställa att man inte missar några uppdateringar som har skett på remote,
+
+[Tillbaks till git kommandon](#git-kommandon)
+
+[Tillbaks till toppen](#intro-grundläggande-programmering)
+
+---
+
+### `git push`
+
+Git push är det kommando som pushar upp dina lokala commits till remote repot. Se det som en sync i riktningt "local -> remote". Alltså motsatt riktigt som en "[git pull](#git-pull)". En push behöver man inte göra efter varje commit, utan man kan göra det lite när som helst egentligen. Kanske i slutet av dagen när man stänger ner datorn. Så fort du gör en push så kommer din commit att läggas till remote och du skulle kunna gå in på en annan datorn och hämta hem de ändringar som du precis har gjort.
+
+```
+git push
+```
+
+[Tillbaks till git kommandon](#git-kommandon)
+
 [Tillbaks till toppen](#intro-grundläggande-programmering)
 
 ---
 
 #### `git status`
 
-Status-kommndot är ett bra kommando för att se statusen på de olika filerna som du har arbeta med. Den kan visa vilka filerna du har ändrat i, vilka du har skapat samt vilka du har raderat. Den visar också vilken status de olika filerna har, har de status "untracked", "changes" eller "staged changes". Olika status betyder olika saker.
+Status-kommndot är ett bra kommando för att se statusen på de olika filerna som du har arbeta med. Den kan visa vilka filerna du har ändrat i, vilka du har skapat samt vilka du har raderat. Den visar också vilken status de olika filerna har, har de status "untracked", "changes" eller "staged changes".
+
+[Tillbaks till git kommandon](#git-kommandon)
+
+[Tillbaks till toppen](#intro-grundläggande-programmering)
+
+---
+
+#### `git log`
+
+Log är ett bra kommando för att lista de commitsen som finns registrerade. Kan ju en bra överblick vad som har skett det senaste tiden samt i vilken ordning ändringarna har skett i.
+
+Skulle man behöva backa tillbaks i version är det i git log man hitter id på den commiten man vill backa tillbaks till.
+
+Enkelt kommando:
+
+```
+git log
+```
+
+[Tillbaks till git kommandon](#git-kommandon)
 
 [Tillbaks till toppen](#intro-grundläggande-programmering)
 
